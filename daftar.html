@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Add blur to the main content */
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-background {
+  filter: blur(5px); /* Adjust the blur level as needed */
+  -webkit-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Updated form container to have a solid background */
+.register-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  box-shadow: 0px 0px 20px rgba(80, 86, 94, 0.507);
+  border-radius: 8px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.register-container h2 {
+  margin-bottom: 10%;
+  font-weight: 800;
+  color: whitesmoke;
+  font-size: xx-large;
+}
+
+.register-container label {
+  margin-bottom: 2%;
+  margin-top: 4%;
+  font-weight: 800;
+  color: whitesmoke;
+  display: block;
+  text-align: left;
+}
+
+.register-container .form-control {
+  margin-bottom: 15px;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 5px;
+}
+
+.register-container .btn-primary {
+  width: 40%;
+  margin: 0 auto;
+  display: block;
+}
+
+.register-container .register-link {
+  text-align: center;
+  margin-top: 10px;
+  color: whitesmoke;
+}
+
+.register-container .register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group-append {
+  margin-left: -1px;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 999;
+}
+.close-icon {
+position: absolute;
+top: 2px;
+right: 10px;
+font-size: 20px;
+cursor: pointer;
+color: #fbfbfb;
+}
+.close-icon:hover {
+color: #515050;
+}
+</style>
+</head>
+<body id="top">
+    <div class="register-container">
+        <h2>Sign Up</h2>
+        <form id="daftarForm" action="daftar.php" method="POST">
+          <span class="close-icon" id="closeIcon">&times;</span>
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+            </div><br>            
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+          <div class="register-link">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    </div>
+  
+    <!-- 
+      - #HEADER
+    -->
+  <div class="blur-background">
+    <header class="header" data-header>
+      <div class="container">
+  
+        <div class="overlay" data-overlay></div>
+  
+        <a href="./index.html" class="logo">
+          <span style="color: hsl(57, 97%, 45%); font: bold;">CinemaXjoss</span>
+        </a>
+  
+        <div class="header-actions">
+  
+          <button class="search-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+  
+          <div class="lang-wrapper">
+            <label for="language">
+              <ion-icon name="settings-outline"></ion-icon>
+            </label>
+  
+          </div>
+  
+          <button class="btn btn-primary" type="submit" onclick="window.location.href='login.html'">Masuk</button>
+  
+        </div>
+  
+        <button class="menu-open-btn" data-menu-open-btn>
+          <ion-icon name="reorder-two"></ion-icon>
+        </button>
+  
+        <nav class="navbar" data-navbar>
+  
+          <div class="navbar-top">
+  
+            <a href="./index.html" class="logo">
+            </a>
+  
+            <button class="menu-close-btn" data-menu-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+  
+          </div>
+  
+          <ul class="navbar-list">
+  
+            <li>
+              <a href="./index.html" class="navbar-link">Beranda</a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-link">Film</a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-link">Serial</a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-link">Populer</a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-link">Trending</a>
+            </li>
+  
+          </ul>
+  
+          <ul class="navbar-social-list">
+  
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#" class="navbar-social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+  
+          </ul>
+  
+        </nav>
+  
+      </div>
+    </header>
+  
+    <main>
+      <article>
+  
+        <!-- 
+          - #HERO
+        -->
+  
+        <section class="hero">
+          <div class="container">
+  
+            <div class="hero-content">
+  
+              <p class="hero-subtitle">CinemaXjoss</p>
+  
+              <h1 class="h1 hero-title">
+                Jelajahi <strong>Film</strong>, Acara TV, Anime, dan Hiburan Lain Tanpa Batas.
+              </h1>
+  
+              <div class="meta-wrapper">
+  
+                <div class="badge-wrapper">
+                  <div class="badge badge-outline">HD</div>
+                  <div class="badge badge-outline">2K</div>
+                  <div class="badge badge-outline">4K</div>
+                </div>
+  
+                <div class="ganre-wrapper">
+                  <a href="#">Aksi,</a>
+                  <a href="#">Horor,</a>
+                  <a href="#">Petualangan,</a>
+                  <a href="#" style="color: rgb(0, 149, 255); font-style: italic;">Genre Lainnya</a>
+                </div>
+  
+                <div class="date-time">
+  
+                  <div>
+                    <ion-icon name="calendar-outline"></ion-icon>
+  
+                    <time datetime="2023">2023</time>
+                  </div>
+  
+                  <div>
+                    <ion-icon name="time-outline"></ion-icon>
+  
+                    <time datetime="PT128M">128 min</time>
+                  </div>
+  
+                </div>
+  
+              </div>
+  
+              <button class="btn btn-primary">
+                <ion-icon name="play"></ion-icon>
+  
+                <span>Tonton Sekarang</span>
+              </button>
+  
+            </div>
+  
+          </div>
+        </section>
+  
+  
+  
+  
+  
+        <!-- 
+          - #UPCOMING
+        -->
+  
+        <section class="upcoming">
+          <div class="container">
+  
+            <div class="flex-wrapper">
+  
+              <div class="title-wrapper">
+                <p class="section-subtitle">Streaming Online</p>
+  
+                <h2 class="h2 section-title">Upcoming Movies</h2>
+              </div>
+  
+              <ul class="filter-list">
+  
+                <li>
+                  <button class="filter-btn">Film</button>
+                </li>
+  
+                <li>
+                  <button class="filter-btn">Acara TV</button>
+                </li>
+  
+                <li>
+                  <button class="filter-btn">Anime</button>
+                </li>
+  
+              </ul>
+  
+            </div>
+  
+            <ul class="movies-list  has-scrollbar">
+  
+              <li>
+                <div class="movie-card">
+  
+                  <a href="./movie-details.html">
+                    <figure class="card-banner">
+                      <img src="./assets/images/upcoming-1.png" alt="The Northman movie poster">
+                    </figure>
+                  </a>
+  
+                  <div class="title-wrapper">
+                    <a href="./movie-details.html">
+                      <h3 class="card-title">The Northman</h3>
+                    </a>
+  
+                    <time datetime="2023">2023</time>
+                  </div>
+  
+                  <div class="card-meta">
+                    <div class="badge badge-outline">HD</div>
+  
+                    <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+  
+                      <time datetime="PT137M">137 min</time>
+                    </div>
+  
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+  
+                      <data>8.5</data>
+                    </div>
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="movie-card">
+  
+                  <a href="./movie-details.html">
+                    <figure class="card-banner">
+                      <img src="./assets/images/upcoming-2.png"
+                        alt="Doctor Strange in the Multiverse of Madness movie poster">
+                    </figure>
+                  </a>
+  
+                  <div class="title-wrapper">
+                    <a href="./movie-details.html">
+                      <h3 class="card-title">Doctor Strange in the Multiverse of Madness</h3>
+                    </a>
+  
+                    <time datetime="2022">2022</time>
+                  </div>
+  
+                  <div class="card-meta">
+                    <div class="badge badge-outline">4K</div>
+  
+                    <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+  
+                      <time datetime="PT126M">126 min</time>
+                    </div>
+  
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+  
+                      <data>NR</data>
+                    </div>
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="movie-card">
+  
+                  <a href="./movie-details.html">
+                    <figure class="card-banner">
+                      <img src="./assets/images/upcoming-3.png" alt="Memory movie poster">
+                    </figure>
+                  </a>
+  
+                  <div class="title-wrapper">
+                    <a href="./movie-details.html">
+                      <h3 class="card-title">Memory</h3>
+                    </a>
+  
+                    <time datetime="2022">2022</time>
+                  </div>
+  
+                  <div class="card-meta">
+                    <div class="badge badge-outline">2K</div>
+  
+                    <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+  
+                      <time datetime="">N/A</time>
+                    </div>
+  
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+  
+                      <data>NR</data>
+                    </div>
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="movie-card">
+  
+                  <a href="./movie-details.html">
+                    <figure class="card-banner">
+                      <img src="./assets/images/upcoming-4.png"
+                        alt="The Unbearable Weight of Massive Talent movie poster">
+                    </figure>
+                  </a>
+  
+                  <div class="title-wrapper">
+                    <a href="./movie-details.html">
+                      <h3 class="card-title">The Unbearable Weight of Massive Talent</h3>
+                    </a>
+  
+                    <time datetime="2023">2023</time>
+                  </div>
+  
+                  <div class="card-meta">
+                    <div class="badge badge-outline">HD</div>
+  
+                    <div class="duration">
+                      <ion-icon name="time-outline"></ion-icon>
+  
+                      <time datetime="PT107M">107 min</time>
+                    </div>
+  
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+  
+                      <data>NR</data>
+                    </div>
+                  </div>
+  
+                </div>
+              </li>
+  
+            </ul>
+  
+          </div>
+        </section>
+    </article>
+</main>
+</div>    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('daftarForm').addEventListener('submit', function(event) {
+              event.preventDefault();
+  
+              var nama = document.getElementById('nama').value;
+              var username = document.getElementById('username').value;
+              var password = document.getElementById('password').value;
+  
+              if (!nama || !username || !password) {
+                  Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Semua field harus diisi!',
+                  });
+                  return;
+              }
+  
+              var formData = new FormData(this);
+  
+              fetch('daftar.php', {
+                  method: 'POST',
+                  body: formData
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Registrasi Berhasil!',
+                          text: data.message,
+                          willClose: () => {
+                            window.location.href = 'login.html';
+                        }
+                      });
+                  } else {
+                      Swal.fire({
+                          icon: 'error',
+                          title: 'Gagal',
+                          text: data.message || 'Terjadi kesalahan saat registrasi.'
+                      });
+                  }
+              })
+              .catch(error => {
+                  Swal.fire({
+                      icon: 'error',
+                      title: 'Gagal',
+                      text: 'Terjadi kesalahan saat mengirim data.'
+                  });
+                  console.error('Error:', error);
+              });
+          });
+  
+          // Menangani klik pada ikon close
+          document.getElementById('closeIcon').addEventListener('click', function() {
+              window.location.href = "index.html"; // Ganti dengan URL halaman utama Anda
+          });
+      });
+  </script>
+    
+    
+</body>
+</html>
